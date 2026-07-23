@@ -1,0 +1,140 @@
+aid: metro-bank
+url: https://raw.githubusercontent.com/api-evangelist/metro-bank/refs/heads/main/apis.yml
+name: Metro Bank
+kind: company
+description: Metro Bank is a UK retail and commercial bank founded in 2010 as the first
+  new high-street bank to open in Britain in over 150 years, headquartered in London
+  and listed on the London Stock Exchange (ticker MTRO). It is a public limited company
+  (not a mutual or building society), authorised by the Prudential Regulation Authority
+  and regulated by the Financial Conduct Authority and the PRA, serving personal and
+  business customers through its branch ("store") network and digital channels. As
+  an FCA-authorised account servicing payment service provider (ASPSP) under PSD2,
+  Metro Bank participates in UK Open Banking without being one of the nine CMA-mandated
+  banks (the CMA9). It operates a public developer portal, built on Google Apigee, that
+  publishes PSD2 / UK Open Banking APIs aligned to the Open Banking Implementation
+  Entity (OBIE) Read/Write standard - Account and Transaction Information, Payment
+  Initiation, and Confirmation of Funds - secured with FAPI-grade OAuth2/OIDC, mutual
+  TLS, dynamic client registration, and PSD2 strong customer authentication, alongside
+  the OBIE Open Data reference-data APIs and FCA service-quality metrics reporting.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Financial Services
+- Banking
+- Open Banking
+- PSD2
+- OBIE
+- United Kingdom
+- Payments
+- Account Information
+- FAPI
+- Fintech
+created: '2026-07-23'
+modified: '2026-07-23'
+specificationVersion: '0.19'
+apis:
+- aid: metro-bank:metro-bank-open-data-api
+  name: Metro Bank Open Data API
+  description: Public, unauthenticated OBIE Open Data reference API exposing Metro Bank's
+    ATM locations, branch ("store") locations, personal and business current account
+    products, unsecured SME loans, and commercial credit card products, conformant to
+    the UK Open Banking Open Data API standard. Endpoint host confirmed live; the exact
+    open-data base path/version was not independently verified (see review.yml).
+  humanURL: https://developer.metrobankonline.co.uk/Overview
+  baseURL: https://api.metrobankonline.co.uk/open-banking/v2.3
+  tags:
+  - Open Data
+  - ATMs
+  - Branches
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/obie-open-data-api-standard-v1.3-swagger.json
+  - type: Documentation
+    url: https://developer.metrobankonline.co.uk/Overview
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+- aid: metro-bank:metro-bank-account-information-api
+  name: Metro Bank Account and Transaction Information API
+  description: OBIE Read/Write Account Information Service (AIS) API providing consented
+    access to account details, balances, transactions, beneficiaries, standing orders,
+    direct debits, and statements. FAPI-secured with OAuth2/OIDC, mutual TLS, and PSD2
+    strong customer authentication; requires developer-portal onboarding and eIDAS/OBIE
+    certificates.
+  humanURL: https://developer.metrobankonline.co.uk/Overview
+  baseURL: https://api.metrobankonline.co.uk/open-banking/v3.1/aisp
+  tags:
+  - Account Information
+  - AIS
+  - Transactions
+  properties:
+  - type: Documentation
+    url: https://developer.metrobankonline.co.uk/Overview
+  - type: APIReference
+    url: https://openbankinguk.github.io/read-write-api-site3/
+- aid: metro-bank:metro-bank-payment-initiation-api
+  name: Metro Bank Payment Initiation API
+  description: OBIE Read/Write Payment Initiation Service (PIS) API for initiating
+    domestic and scheduled payments, standing orders, and file payments on behalf of
+    a consenting customer. FAPI-secured with OAuth2/OIDC, mutual TLS, and PSD2 strong
+    customer authentication; requires developer-portal onboarding and eIDAS/OBIE
+    certificates.
+  humanURL: https://developer.metrobankonline.co.uk/Overview
+  baseURL: https://api.metrobankonline.co.uk/open-banking/v3.1/pisp
+  tags:
+  - Payment Initiation
+  - PIS
+  - Payments
+  properties:
+  - type: Documentation
+    url: https://developer.metrobankonline.co.uk/Overview
+  - type: APIReference
+    url: https://openbankinguk.github.io/read-write-api-site3/
+- aid: metro-bank:metro-bank-confirmation-of-funds-api
+  name: Metro Bank Confirmation of Funds API
+  description: OBIE Read/Write Confirmation of Funds (CBPII) API allowing a card-based
+    payment instrument issuer to confirm whether sufficient funds are available on a
+    customer account. FAPI-secured with OAuth2/OIDC, mutual TLS, and PSD2 strong
+    customer authentication; requires developer-portal onboarding and eIDAS/OBIE
+    certificates.
+  humanURL: https://developer.metrobankonline.co.uk/Overview
+  baseURL: https://api.metrobankonline.co.uk/open-banking/v3.1/cbpii
+  tags:
+  - Confirmation of Funds
+  - CBPII
+  properties:
+  - type: Documentation
+    url: https://developer.metrobankonline.co.uk/Overview
+  - type: APIReference
+    url: https://openbankinguk.github.io/read-write-api-site3/
+- aid: metro-bank:metro-bank-fca-account-metrics-api
+  name: Metro Bank FCA Account Metrics API
+  description: API publishing Metro Bank's FCA service-quality and account metrics data
+    (management information required under UK regulatory reporting), documented in the
+    Metro Bank developer portal as the FCA Account Metrics API.
+  humanURL: https://developer.metrobankonline.co.uk/FCA-Account-Metrics-API
+  baseURL: https://api.metrobankonline.co.uk/open-banking/v3.1
+  tags:
+  - FCA
+  - Account Metrics
+  - Reporting
+  properties:
+  - type: Documentation
+    url: https://developer.metrobankonline.co.uk/FCA-Account-Metrics-API
+common:
+- type: Website
+  url: https://www.metrobankonline.co.uk/
+- type: DeveloperPortal
+  url: https://developer.metrobankonline.co.uk/
+- type: Documentation
+  url: https://developer.metrobankonline.co.uk/Overview
+- type: LinkedIn
+  url: https://www.linkedin.com/company/metro-bank
+- type: Blog
+  url: https://www.metrobankonline.co.uk/about-us/press-releases/
+- type: Support
+  url: https://www.metrobankonline.co.uk/help-and-support/
+- type: PrivacyPolicy
+  url: https://www.metrobankonline.co.uk/privacy/
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -1,0 +1,106 @@
+aid: metro-bank
+name: Metro Bank
+review:
+  question: Does Metro Bank expose a public, documented Open Banking API surface, and
+    what is its authentication model and spec provenance?
+  answer: true
+  date: '2026-07-23'
+  reviewer: API Evangelist
+findings:
+  summary: |
+    Metro Bank operates a genuine public developer portal at
+    https://developer.metrobankonline.co.uk (built on Google Apigee, protected
+    by Imperva/Incapsula bot management). The portal documents three core
+    Open Banking products - an Identity API, an Account API, and a Payment
+    Initiation Service - aligned to the Open Banking Implementation Entity
+    (OBIE) Read/Write standard, plus an FCA Account Metrics API for regulatory
+    service-quality reporting. Metro Bank is an FCA/PRA-authorised ASPSP under
+    PSD2 but is NOT one of the nine CMA-mandated banks (the CMA9); it is a
+    London-listed public limited company (LSE: MTRO), not a building society or
+    mutual.
+
+    The Read/Write production host api.metrobankonline.co.uk is confirmed live
+    and enforces mutual TLS: unauthenticated requests return HTTP 400 with the
+    body "No required SSL certificate was sent", consistent with FAPI-grade
+    security (OAuth2/OIDC + mTLS + PSD2 strong customer authentication + dynamic
+    client registration using eIDAS/OBIE certificates). Access therefore requires
+    developer-portal onboarding and certificates and cannot be exercised
+    anonymously.
+
+    An OBIE Open Data surface (ATMs, branches, personal/business current
+    accounts, unsecured SME loans, commercial credit cards) is represented as
+    part of Metro Bank's obligations. A LIVE unauthenticated 200 from a Metro
+    Bank Open Data endpoint was NOT confirmed during this review: the production
+    host demands a client certificate, and candidate open-data subdomains
+    (openbankingapi./opendata.metrobankonline.co.uk) returned HTTP 503 from the
+    Incapsula edge. The Open Data base path/version in apis.yml is therefore the
+    documented/standard OBIE shape on Metro's confirmed-live host and is flagged
+    unverified.
+
+    Spec provenance: no Metro-proprietary OpenAPI/Swagger was publicly
+    downloadable. The harvested spec at
+    openapi/obie-open-data-api-standard-v1.3-swagger.json is the SHARED OBIE
+    Open Data API standard (Swagger 2.0, Open Data API v1.3, from
+    github.com/OpenBankingUK/opendata-api-spec-compiled), NOT a Metro Bank
+    contract. The bank's Read/Write APIs conform to the OBIE Read/Write standard
+    published at github.com/OpenBankingUK/read-write-api-specs.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.metrobankonline.co.uk/open-banking/v3.1
+      documented: true
+      note: Read/Write host confirmed live; enforces mutual TLS (HTTP 400 "No required SSL certificate was sent" without a client cert).
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.metrobankonline.co.uk/open-banking/v2.3
+      documented: true
+      note: OBIE Open Data path shape on Metro's confirmed-live host; live unauthenticated 200 NOT confirmed (unverified).
+  authModel:
+    standard: OBIE Read/Write API (UK Open Banking) + OBIE Open Data
+    security: FAPI OAuth2/OIDC, mutual TLS, PSD2 strong customer authentication, dynamic client registration (eIDAS/OBIE certificates)
+    openDataAuth: none (unauthenticated by standard) - endpoint not confirmed live
+  openDataConfirmed: false
+  readWriteSpecsCaptured: true
+  proprietarySpecHarvested: false
+  cma9: false
+  developerPortalConfirmed: true
+endpointsProbed:
+  - url: https://api.metrobankonline.co.uk/open-banking/v2.3/atms
+    status: 400
+    note: "Mutual-TLS required: 'No required SSL certificate was sent'."
+  - url: https://api.metrobankonline.co.uk/open-banking/v3.1/aisp/accounts
+    status: 400
+    note: Mutual-TLS required (FAPI Read/Write host).
+  - url: https://openbankingapi.metrobankonline.co.uk/open-banking/v2.2/atms
+    status: 503
+    note: Incapsula edge; no JSON returned.
+  - url: https://opendata.metrobankonline.co.uk/open-banking/v2.2/atms
+    status: 503
+    note: Incapsula edge; no JSON returned.
+  - url: https://developer.metrobankonline.co.uk/
+    status: 301
+    note: Real developer portal (Apigee); pages behind Imperva/Incapsula bot protection (503 to automated clients).
+sources:
+  - url: https://developer.metrobankonline.co.uk/Overview
+    type: DeveloperPortal
+    note: Metro Bank Open Banking developer portal (Apigee); documents Identity, Account, and Payment Initiation APIs.
+  - url: https://developer.metrobankonline.co.uk/FCA-Account-Metrics-API
+    type: Documentation
+    note: FCA Account Metrics API documentation.
+  - url: https://www.metrobankonline.co.uk/about-us/press-releases/news/metro-bank-welcomes-open-banking-revolution-with-launch-of-developer-portal/
+    type: PressRelease
+    note: Metro Bank launch of Open Banking developer portal.
+  - url: https://github.com/OpenBankingUK/opendata-api-spec-compiled
+    type: OpenAPI
+    note: Source of the shared OBIE Open Data API standard spec (Swagger 2.0, v1.3) harvested into openapi/.
+  - url: https://github.com/OpenBankingUK/read-write-api-specs
+    type: OpenAPI
+    note: OBIE Read/Write API standard specifications the bank's AIS/PIS/CBPII APIs conform to.
+actions:
+  openapiHarvested: openapi/obie-open-data-api-standard-v1.3-swagger.json
+  provenance: shared OBIE Open Data standard (not Metro-proprietary)
+  reason: |
+    No Metro-proprietary OpenAPI was publicly downloadable and no live
+    unauthenticated Open Data 200 was obtainable, so the OBIE Open Data and
+    Read/Write families are represented as documented/standard surfaces with the
+    shared OBIE Open Data standard spec captured verbatim and clearly labelled.
