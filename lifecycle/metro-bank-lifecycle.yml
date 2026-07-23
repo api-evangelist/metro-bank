@@ -1,0 +1,32 @@
+generated: '2026-07-23'
+method: searched
+source: >-
+  Metro Bank developer portal + OBIE versioning policy; URI-path versions
+  observed on the live host and in apis.yml baseURLs.
+versioning:
+  scheme: uri-path
+  current:
+    open_data: v2.3
+    read_write: v3.1
+  spec_captured_version: v1.3 (Open Data API standard, Swagger 2.0)
+  docs: https://developer.metrobankonline.co.uk/Overview
+  policy: >-
+    Versions follow the OBIE standard release train; ASPSPs adopt OBIE-published
+    major/minor versions and run them at distinct /open-banking/vX.Y base paths.
+deprecation:
+  policy: >-
+    Superseded OBIE versions are retired on the OBIE migration timetable;
+    Metro Bank exposes multiple concurrent versions per path during transition.
+  sunset_header: unverified
+sla:
+  note: >-
+    Availability and performance are reported under FCA/OBIE operational
+    guidelines; Metro Bank publishes an FCA Account Metrics API for service-quality
+    reporting rather than a public developer SLA page.
+  fca_metrics_api: https://developer.metrobankonline.co.uk/FCA-Account-Metrics-API
+status_page:
+  found: false
+  note: >-
+    No dedicated public developer status page was confirmed; the developer
+    portal is bot-protected (Imperva/Incapsula).
+deprecated_operations: []

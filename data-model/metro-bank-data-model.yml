@@ -1,0 +1,37 @@
+generated: '2026-07-23'
+method: derived
+source: openapi/obie-open-data-api-standard-v1.3-swagger.json
+note: >-
+  Entity graph derived from the OBIE Open Data API standard v1.3 surface. Each
+  reference-data collection is returned inside a { meta, data } envelope. The
+  FAPI Read/Write account/transaction/payment domain is not modelled here
+  because those specs are gated.
+envelope:
+  meta:
+    fields: [LastUpdated, TotalResults, Agreement]
+  data: array of the resource entity
+entities:
+  - name: Branch
+    endpoint: GET /branches
+    domain: reference-data (store/branch locations)
+  - name: ATM
+    endpoint: GET /atms
+    domain: reference-data (ATM locations)
+  - name: PersonalCurrentAccount
+    endpoint: GET /personal-current-accounts
+    domain: product (PCA product terms)
+  - name: BusinessCurrentAccount
+    endpoint: GET /business-current-accounts
+    domain: product (BCA product terms)
+  - name: UnsecuredSMELoan
+    endpoint: GET /unsecured-sme-loans
+    domain: product (SME lending product terms)
+  - name: CommercialCreditCard
+    endpoint: GET /commercial-credit-cards
+    domain: product (commercial card product terms)
+relationships:
+  - from: Meta
+    to: [Branch, ATM, PersonalCurrentAccount, BusinessCurrentAccount, UnsecuredSMELoan, CommercialCreditCard]
+    type: has_many
+    via: data
+    note: Each response envelopes a data[] collection of one entity type alongside a meta block.

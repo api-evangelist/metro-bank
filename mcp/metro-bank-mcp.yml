@@ -1,0 +1,32 @@
+generated: '2026-07-23'
+method: derived
+status: candidate
+source: openapi/obie-open-data-api-standard-v1.3-swagger.json
+note: >-
+  No official Metro Bank MCP server was found. Candidate tool list derived from
+  the public, unauthenticated OBIE Open Data reference API only (the FAPI
+  Read/Write AIS/PIS/CBPII surface is consent- and mTLS-gated and is not
+  exposed as anonymous tools). Tools map 1:1 to the Open Data GET operations.
+server:
+  name: metro-bank-open-data
+  transport: http
+  url: null
+tools:
+  - name: list_branches
+    description: List Metro Bank branch ("store") locations.
+    source_operation: openapi/obie-open-data-api-standard-v1.3-swagger.json#GET /branches
+  - name: list_atms
+    description: List Metro Bank ATM locations.
+    source_operation: openapi/obie-open-data-api-standard-v1.3-swagger.json#GET /atms
+  - name: list_personal_current_accounts
+    description: List Metro Bank personal current account products and terms.
+    source_operation: openapi/obie-open-data-api-standard-v1.3-swagger.json#GET /personal-current-accounts
+  - name: list_business_current_accounts
+    description: List Metro Bank business current account products and terms.
+    source_operation: openapi/obie-open-data-api-standard-v1.3-swagger.json#GET /business-current-accounts
+  - name: list_unsecured_sme_loans
+    description: List Metro Bank unsecured SME loan products and terms.
+    source_operation: openapi/obie-open-data-api-standard-v1.3-swagger.json#GET /unsecured-sme-loans
+  - name: list_commercial_credit_cards
+    description: List Metro Bank commercial credit card products and terms.
+    source_operation: openapi/obie-open-data-api-standard-v1.3-swagger.json#GET /commercial-credit-cards

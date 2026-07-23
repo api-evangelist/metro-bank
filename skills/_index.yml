@@ -1,0 +1,13 @@
+generated: '2026-07-23'
+method: generated
+skills:
+  - file: metro-bank-open-data-lookup.md
+    name: Look up Metro Bank Open Data (branches, ATMs, products)
+    api: openapi/obie-open-data-api-standard-v1.3-swagger.json
+    operations:
+      - GET /branches
+      - GET /atms
+      - GET /personal-current-accounts
+      - GET /business-current-accounts
+      - GET /unsecured-sme-loans
+      - GET /commercial-credit-cards

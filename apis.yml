@@ -121,6 +121,34 @@ apis:
   - type: Documentation
     url: https://developer.metrobankonline.co.uk/FCA-Account-Metrics-API
 common:
+- type: AgenticAccess
+  url: agentic-access/metro-bank-agentic-access.yml
+- type: DomainSecurity
+  url: security/metro-bank-domain-security.yml
+- type: Authentication
+  url: authentication/metro-bank-authentication.yml
+- type: OAuthScopes
+  url: scopes/metro-bank-scopes.yml
+- type: Conventions
+  url: conventions/metro-bank-conventions.yml
+- type: Idempotency
+  url: conventions/metro-bank-conventions.yml
+- type: Conformance
+  url: conformance/metro-bank-conformance.yml
+- type: Lifecycle
+  url: lifecycle/metro-bank-lifecycle.yml
+- type: ErrorCatalog
+  url: errors/metro-bank-problem-types.yml
+- type: DataModel
+  url: data-model/metro-bank-data-model.yml
+- type: Overlay
+  url: overlays/metro-bank-open-data-overlay.yaml
+- type: MCPServer
+  url: mcp/metro-bank-mcp.yml
+- type: LLMsTxt
+  url: llms/metro-bank-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
 - type: Website
   url: https://www.metrobankonline.co.uk/
 - type: DeveloperPortal

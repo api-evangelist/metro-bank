@@ -1,0 +1,39 @@
+generated: '2026-07-23'
+method: derived
+source: openapi/obie-open-data-api-standard-v1.3-swagger.json (4xx/5xx responses)
+format: http-status
+note: >-
+  Derived from the OBIE Open Data API standard responses (the only captured
+  spec). Every Open Data list endpoint (/branches, /atms,
+  /personal-current-accounts, /business-current-accounts,
+  /unsecured-sme-loans, /commercial-credit-cards) returns this common set. The
+  FAPI Read/Write APIs additionally use the OBIE error structure
+  (Code, Id, Message, Errors[] with ErrorCode/Message/Path) - not captured
+  because those specs are not publicly downloadable.
+problems:
+  - status: 400
+    title: Bad request
+    detail: You have sent a request which could not be understood.
+    applies_to: [Open Data GET endpoints]
+  - status: 408
+    title: Request timeout
+    detail: The client did not produce a request within the time the server was prepared to wait.
+    applies_to: [Open Data GET endpoints]
+  - status: 429
+    title: Too many requests
+    detail: You have requested this resource too often. Slow down.
+    applies_to: [Open Data GET endpoints]
+    convention: rate-limit signalling (see conventions/metro-bank-conventions.yml)
+  - status: 500
+    title: Internal server error
+    detail: An error occurred on the server. No further information is available.
+    applies_to: [Open Data GET endpoints]
+  - status: 503
+    title: Service unavailable
+    detail: The service is temporarily unavailable.
+    applies_to: [Open Data GET endpoints]
+read_write_errors:
+  format: OBIE error structure
+  fields: [Code, Id, Message, Errors]
+  error_fields: [ErrorCode, Message, Path, Url]
+  note: Standard OBIE Read/Write error envelope; not captured verbatim (specs gated).

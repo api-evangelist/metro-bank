@@ -1,0 +1,39 @@
+# Metro Bank
+
+> Metro Bank is a UK retail and commercial bank (LSE: MTRO), an FCA/PRA-authorised
+> PSD2 account servicing payment service provider (ASPSP). It runs a public
+> developer portal (built on Google Apigee) publishing UK Open Banking / OBIE
+> APIs: a public Open Data reference API and FAPI-secured Read/Write APIs for
+> Account Information, Payment Initiation, and Confirmation of Funds, plus an FCA
+> Account Metrics API. Metro Bank is not one of the CMA9.
+
+## APIs
+- [Metro Bank Open Data API](https://developer.metrobankonline.co.uk/Overview): Public OBIE Open Data - ATMs, branches, personal/business current accounts, unsecured SME loans, commercial credit cards. Base https://api.metrobankonline.co.uk/open-banking/v2.3
+- [Account and Transaction Information API](https://developer.metrobankonline.co.uk/Overview): OBIE Read/Write AIS (FAPI, consent-gated). Base https://api.metrobankonline.co.uk/open-banking/v3.1/aisp
+- [Payment Initiation API](https://developer.metrobankonline.co.uk/Overview): OBIE Read/Write PIS (FAPI, consent-gated). Base https://api.metrobankonline.co.uk/open-banking/v3.1/pisp
+- [Confirmation of Funds API](https://developer.metrobankonline.co.uk/Overview): OBIE Read/Write CBPII (FAPI, consent-gated). Base https://api.metrobankonline.co.uk/open-banking/v3.1/cbpii
+- [FCA Account Metrics API](https://developer.metrobankonline.co.uk/FCA-Account-Metrics-API): FCA service-quality metrics reporting.
+
+## Specs
+- [OBIE Open Data API standard v1.3 (Swagger 2.0)](openapi/obie-open-data-api-standard-v1.3-swagger.json)
+- OBIE Read/Write standard (conformed to): https://github.com/OpenBankingUK/read-write-api-specs
+
+## Auth
+- Open Data: public, unauthenticated (HTTPS)
+- Read/Write: FAPI OAuth2/OIDC + mutual TLS + PSD2 SCA + OBIE dynamic client registration (eIDAS/OBIE certificates). See authentication/metro-bank-authentication.yml and scopes/metro-bank-scopes.yml.
+
+## Docs
+- [Developer Portal](https://developer.metrobankonline.co.uk/)
+- [Overview](https://developer.metrobankonline.co.uk/Overview)
+- [Website](https://www.metrobankonline.co.uk/)
+
+## Artifacts
+- [Authentication](authentication/metro-bank-authentication.yml)
+- [OAuth Scopes](scopes/metro-bank-scopes.yml)
+- [Conventions](conventions/metro-bank-conventions.yml)
+- [Conformance](conformance/metro-bank-conformance.yml)
+- [Lifecycle](lifecycle/metro-bank-lifecycle.yml)
+- [Error catalog](errors/metro-bank-problem-types.yml)
+- [Data model](data-model/metro-bank-data-model.yml)
+- [Agentic access](agentic-access/metro-bank-agentic-access.yml)
+- [Domain security](security/metro-bank-domain-security.yml)

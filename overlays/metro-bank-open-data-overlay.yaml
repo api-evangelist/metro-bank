@@ -1,0 +1,20 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Metro Bank Open Data API
+  version: 1.0.0
+extends: openapi/obie-open-data-api-standard-v1.3-swagger.json
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-provider: metro-bank
+      x-apievangelist-standard: OBIE Open Data API v1.3
+      x-apievangelist-auth: public (unauthenticated)
+      x-apievangelist-note: >-
+        Shared OBIE Open Data standard spec; Metro Bank serves this reference-data
+        surface at api.metrobankonline.co.uk/open-banking/v2.3. The bank's
+        FAPI-secured Read/Write AIS/PIS/CBPII APIs conform to the OBIE Read/Write
+        standard and are documented separately.
+  - target: $.paths.*.get
+    update:
+      x-apievangelist-idempotent: true
+      x-apievangelist-conditional-requests: [If-Modified-Since, If-None-Match]

@@ -1,0 +1,49 @@
+generated: '2026-07-23'
+method: searched
+source: >-
+  OBIE Read/Write API Specification (github.com/OpenBankingUK/read-write-api-specs)
+  - Metro Bank's AIS/PIS/CBPII APIs conform to this standard. The Open Data API
+  is unauthenticated and declares no scopes.
+docs: https://developer.metrobankonline.co.uk/Overview
+schemes:
+  - name: OBIE-FAPI-OAuth2
+    source: OBIE Read/Write API Security Profile
+    flows:
+      - flow: authorizationCode
+        note: FAPI OIDC hybrid; customer-present with PSD2 SCA
+      - flow: clientCredentials
+        note: consent-resource creation
+scopes:
+  - scope: openid
+    description: >-
+      OpenID Connect scope; required to obtain an id_token and run the
+      FAPI OIDC hybrid authorisation flow.
+    flows: [authorizationCode]
+    sources: [OBIE Read/Write API Security Profile]
+  - scope: accounts
+    description: >-
+      Account and Transaction Information (AIS) - consented read access to
+      accounts, balances, transactions, beneficiaries, standing orders,
+      direct debits, statements, and party data.
+    flows: [authorizationCode, clientCredentials]
+    api: metro-bank:metro-bank-account-information-api
+    sources: [OBIE Read/Write API Security Profile]
+  - scope: payments
+    description: >-
+      Payment Initiation (PIS) - create and submit domestic, scheduled,
+      standing-order and file payment-consent and payment resources.
+    flows: [authorizationCode, clientCredentials]
+    api: metro-bank:metro-bank-payment-initiation-api
+    sources: [OBIE Read/Write API Security Profile]
+  - scope: fundsconfirmations
+    description: >-
+      Confirmation of Funds (CBPII) - confirm whether sufficient funds are
+      available on a customer account for a card-based payment instrument.
+    flows: [authorizationCode, clientCredentials]
+    api: metro-bank:metro-bank-confirmation-of-funds-api
+    sources: [OBIE Read/Write API Security Profile]
+note: >-
+  These are the standardised OBIE UK Open Banking Read/Write scopes that Metro
+  Bank's FAPI-secured AIS/PIS/CBPII APIs use. Live introspection of Metro's own
+  authorization server is mTLS/edge-gated and could not be performed anonymously;
+  scopes are captured from the OBIE standard the bank conforms to.

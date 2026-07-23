@@ -1,0 +1,48 @@
+generated: '2026-07-23'
+method: searched
+source: >-
+  Metro Bank developer portal + OBIE standards the bank's APIs conform to;
+  Open Data spec content (openapi/obie-open-data-api-standard-v1.3-swagger.json).
+standards:
+  - id: obie-open-data
+    conforms: true
+    evidence: >-
+      Open Data API standard v1.3 (Swagger 2.0) captured verbatim; branches,
+      ATMs, PCA/BCA, unsecured SME loans, commercial credit cards endpoints.
+  - id: obie-read-write
+    conforms: true
+    evidence: >-
+      AIS/PIS/CBPII APIs documented on the developer portal as OBIE Read/Write
+      standard products (v3.1).
+  - id: psd2
+    conforms: true
+    evidence: >-
+      FCA/PRA-authorised ASPSP under PSD2; publishes PSD2 Open Banking access
+      interface with strong customer authentication.
+  - id: fapi
+    conforms: true
+    evidence: >-
+      Read/Write host enforces the FAPI security profile - mutual TLS confirmed
+      live (HTTP 400 "No required SSL certificate was sent"), OAuth2/OIDC hybrid.
+  - id: oauth2
+    conforms: true
+    evidence: OBIE FAPI OAuth2 authorizationCode + clientCredentials flows.
+  - id: oidc
+    conforms: true
+    evidence: OpenID Connect hybrid flow issues id_token for AIS/PIS/CBPII consent.
+  - id: mutual-tls
+    conforms: true
+    evidence: Client-certificate (eIDAS/OBIE) transport security confirmed live.
+  - id: dynamic-client-registration
+    conforms: true
+    evidence: OBIE DCR with eIDAS/OBIE certificates for TPP onboarding.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: >-
+      Uses the OBIE error structure and plain HTTP status responses, not
+      application/problem+json.
+  - id: fca-service-quality-metrics
+    conforms: true
+    evidence: >-
+      Publishes an FCA Account Metrics API for UK regulatory service-quality
+      reporting (developer.metrobankonline.co.uk/FCA-Account-Metrics-API).

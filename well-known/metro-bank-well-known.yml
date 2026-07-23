@@ -1,0 +1,24 @@
+generated: '2026-07-23'
+method: searched
+source: live probes of Metro Bank hosts, 2026-07-23
+note: >-
+  No .well-known discovery document was anonymously retrievable. The developer
+  portal is behind Imperva/Incapsula bot protection (503), the API host enforces
+  mutual TLS (400 without a client certificate), and the marketing host returns
+  404. The OBIE OIDC discovery (openid-configuration) exists but is mTLS/edge
+  -gated. Recorded as honest negative probe data - no raw documents captured.
+documents:
+  - path: https://developer.metrobankonline.co.uk/.well-known/openid-configuration
+    status: 503
+    note: Incapsula edge / bot protection.
+  - path: https://api.metrobankonline.co.uk/.well-known/openid-configuration
+    status: 400
+    note: Mutual-TLS required (no client certificate sent).
+  - path: https://api.metrobankonline.co.uk/.well-known/oauth-authorization-server
+    status: 400
+    note: Mutual-TLS required.
+  - path: https://developer.metrobankonline.co.uk/.well-known/security.txt
+    status: 503
+    note: Incapsula edge / bot protection.
+  - path: https://www.metrobankonline.co.uk/.well-known/security.txt
+    status: 404

@@ -1,0 +1,70 @@
+generated: '2026-07-23'
+method: searched
+source: >-
+  OBIE Read/Write API Security Profile (FAPI) + Metro Bank developer portal
+  (https://developer.metrobankonline.co.uk/Overview); Open Data API is
+  unauthenticated per the OBIE Open Data standard.
+docs: https://developer.metrobankonline.co.uk/Overview
+summary:
+  types: [oauth2, openIdConnect, mutualTLS]
+  api_key_in: []
+  oauth2_flows: [authorizationCode, clientCredentials]
+  notes: >-
+    Two distinct auth postures. The OBIE Open Data reference API
+    (ATMs, branches, product data) is public and unauthenticated. The OBIE
+    Read/Write APIs (AIS, PIS, CBPII) are FAPI-secured and cannot be exercised
+    anonymously - the production host api.metrobankonline.co.uk enforces mutual
+    TLS (an unauthenticated request returns HTTP 400 "No required SSL
+    certificate was sent").
+schemes:
+  - name: OpenData
+    type: none
+    scheme: public
+    applies_to: [metro-bank:metro-bank-open-data-api]
+    sources: [openapi/obie-open-data-api-standard-v1.3-swagger.json]
+    note: >-
+      OBIE Open Data API standard defines no security scheme; access is public
+      and read-only over HTTPS.
+  - name: OBIE-FAPI-OAuth2
+    type: oauth2
+    applies_to:
+      - metro-bank:metro-bank-account-information-api
+      - metro-bank:metro-bank-payment-initiation-api
+      - metro-bank:metro-bank-confirmation-of-funds-api
+    flows:
+      - flow: authorizationCode
+        note: >-
+          Customer-present consent (PSD2 SCA) for AIS/PIS/CBPII resource access;
+          OIDC hybrid flow with a signed request object (JWS), FAPI-compliant.
+      - flow: clientCredentials
+        note: >-
+          Used to create the account-access / payment / funds-confirmation
+          consent resource before the customer authorisation redirect.
+    fapi: true
+    sca: PSD2 strong customer authentication
+    sources: [OBIE Read/Write API Security Profile]
+  - name: OpenIDConnect
+    type: openIdConnect
+    applies_to:
+      - metro-bank:metro-bank-account-information-api
+      - metro-bank:metro-bank-payment-initiation-api
+      - metro-bank:metro-bank-confirmation-of-funds-api
+    note: >-
+      OIDC provider issues id_token; discovery document is served from the
+      ASPSP well-known endpoint (mTLS/edge-gated - not anonymously retrievable).
+  - name: MutualTLS
+    type: mutualTLS
+    applies_to:
+      - metro-bank:metro-bank-account-information-api
+      - metro-bank:metro-bank-payment-initiation-api
+      - metro-bank:metro-bank-confirmation-of-funds-api
+    note: >-
+      Mandatory client-certificate transport security using eIDAS / OBIE
+      (OBWAC / OBSEAL) certificates; also used for tls_client_auth token
+      endpoint authentication. Confirmed live (HTTP 400 without a client cert).
+client_registration:
+  method: dynamic
+  standard: OBIE Dynamic Client Registration (DCR) with eIDAS/OBIE certificates
+  onboarding: >-
+    TPPs must onboard via the developer portal and present valid OB certificates;
+    unregistered/anonymous access is not possible.

@@ -1,0 +1,66 @@
+generated: '2026-07-23'
+method: searched
+source: >-
+  OBIE Read/Write API standard + OBIE Open Data API standard v1.3
+  (openapi/obie-open-data-api-standard-v1.3-swagger.json). Metro Bank's Open
+  Banking APIs conform to these cross-cutting conventions.
+docs: https://developer.metrobankonline.co.uk/Overview
+authentication:
+  open_data: public (no auth)
+  read_write: FAPI OAuth2/OIDC + mutual TLS + PSD2 SCA
+  ref: authentication/metro-bank-authentication.yml
+idempotency:
+  supported: true
+  scope: Payment Initiation (PIS) write operations
+  header: x-idempotency-key
+  max_length: 40
+  retention: >-
+    OBIE standard - idempotent replay of a payment/consent POST with the same
+    x-idempotency-key and identical payload returns the original resource rather
+    than creating a duplicate.
+  note: >-
+    Idempotency is an OBIE Read/Write requirement for payment-initiation POSTs;
+    the unauthenticated Open Data GET/HEAD surface is naturally idempotent.
+tracing:
+  request_id_header: x-fapi-interaction-id
+  note: >-
+    FAPI interaction id echoed on request and response for end-to-end
+    correlation; x-fapi-auth-date, x-fapi-customer-ip-address and
+    x-customer-user-agent convey customer-context on Read/Write calls.
+pagination:
+  style: cursor-links
+  response_fields:
+    - Links.Self
+    - Links.First
+    - Links.Prev
+    - Links.Next
+    - Links.Last
+    - Meta.TotalPages
+  open_data:
+    envelope_fields: [meta.LastUpdated, meta.TotalResults, meta.Agreement]
+    note: >-
+      Open Data list responses carry a meta block (LastUpdated, TotalResults,
+      Agreement); Read/Write list responses use OBIE Links/Meta paging.
+conditional_requests:
+  supported: true
+  request_headers: [If-Modified-Since, If-None-Match]
+  response_headers: [ETag, Last-Modified]
+  note: Open Data GETs support conditional requests (304 Not Modified) via ETag.
+content_negotiation:
+  open_data_media_type: application/prs.openbanking.opendata.v1.3+json
+  read_write_media_type: application/json
+versioning:
+  scheme: uri-path
+  examples: [/open-banking/v2.3 (Open Data), /open-banking/v3.1 (Read/Write)]
+  ref: lifecycle/metro-bank-lifecycle.yml
+error_envelope:
+  open_data: standard HTTP status codes (400/408/429/500/503) with a plain error body
+  read_write: OBIE error structure (Code, Id, Message, Errors[] with ErrorCode/Message/Path)
+  ref: errors/metro-bank-problem-types.yml
+rate_limiting:
+  signalled: true
+  status: 429 Too Many Requests
+  note: >-
+    Open Data responds 429 "You have requested this resource too often. Slow
+    down."; Read/Write enforces per-TPP throttling per the OBIE operational
+    guidelines.
