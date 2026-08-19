@@ -30,7 +30,7 @@ tags:
 - Fintech
 created: '2026-07-23'
 modified: '2026-07-23'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: metro-bank:metro-bank-open-data-api
   name: Metro Bank Open Data API
