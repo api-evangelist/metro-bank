@@ -18,6 +18,17 @@ description: Metro Bank is a UK retail and commercial bank founded in 2010 as th
   the OBIE Open Data reference-data APIs and FCA service-quality metrics reporting.
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
+- Financial-Services
+- Banking
+- Open Banking
+- PSD2
+- OBIE
+- United Kingdom
+- Payments
+- Account Information
+- FAPI
+- Fintech
+tags_raw:
 - Financial Services
 - Banking
 - Open Banking
@@ -45,6 +56,11 @@ apis:
   - Open Data
   - ATMs
   - Branches
+  - Product
+  tags_raw:
+  - Open Data
+  - ATMs
+  - Branches
   - Products
   properties:
   - type: OpenAPI
@@ -63,6 +79,10 @@ apis:
   humanURL: https://developer.metrobankonline.co.uk/Overview
   baseURL: https://api.metrobankonline.co.uk/open-banking/v3.1/aisp
   tags:
+  - Account Information
+  - AIS
+  - Transaction
+  tags_raw:
   - Account Information
   - AIS
   - Transactions
