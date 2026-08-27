@@ -43,39 +43,13 @@ created: '2026-07-23'
 modified: '2026-07-23'
 specificationVersion: '0.23'
 apis:
-- aid: metro-bank:metro-bank-open-data-api
-  name: Metro Bank Open Data API
-  description: Public, unauthenticated OBIE Open Data reference API exposing Metro Bank's
-    ATM locations, branch ("store") locations, personal and business current account
-    products, unsecured SME loans, and commercial credit card products, conformant to
-    the UK Open Banking Open Data API standard. Endpoint host confirmed live; the exact
-    open-data base path/version was not independently verified (see review.yml).
-  humanURL: https://developer.metrobankonline.co.uk/Overview
-  baseURL: https://api.metrobankonline.co.uk/open-banking/v2.3
-  tags:
-  - Open Data
-  - ATMs
-  - Branches
-  - Product
-  tags_raw:
-  - Open Data
-  - ATMs
-  - Branches
-  - Products
-  properties:
-  - type: OpenAPI
-    url: openapi/obie-open-data-api-standard-v1.3-swagger.json
-  - type: Documentation
-    url: https://developer.metrobankonline.co.uk/Overview
-  - type: APIReference
-    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
 - aid: metro-bank:metro-bank-account-information-api
   name: Metro Bank Account and Transaction Information API
-  description: OBIE Read/Write Account Information Service (AIS) API providing consented
-    access to account details, balances, transactions, beneficiaries, standing orders,
-    direct debits, and statements. FAPI-secured with OAuth2/OIDC, mutual TLS, and PSD2
-    strong customer authentication; requires developer-portal onboarding and eIDAS/OBIE
-    certificates.
+  description: >-
+    OBIE Read/Write Account Information Service (AIS) API providing consented access to account details,
+    balances, transactions, beneficiaries, standing orders, direct debits, and statements. FAPI-secured
+    with OAuth2/OIDC, mutual TLS, and PSD2 strong customer authentication; requires developer-portal onboarding
+    and eIDAS/OBIE certificates.
   humanURL: https://developer.metrobankonline.co.uk/Overview
   baseURL: https://api.metrobankonline.co.uk/open-banking/v3.1/aisp
   tags:
@@ -93,10 +67,10 @@ apis:
     url: https://openbankinguk.github.io/read-write-api-site3/
 - aid: metro-bank:metro-bank-payment-initiation-api
   name: Metro Bank Payment Initiation API
-  description: OBIE Read/Write Payment Initiation Service (PIS) API for initiating
-    domestic and scheduled payments, standing orders, and file payments on behalf of
-    a consenting customer. FAPI-secured with OAuth2/OIDC, mutual TLS, and PSD2 strong
-    customer authentication; requires developer-portal onboarding and eIDAS/OBIE
+  description: >-
+    OBIE Read/Write Payment Initiation Service (PIS) API for initiating domestic and scheduled payments,
+    standing orders, and file payments on behalf of a consenting customer. FAPI-secured with OAuth2/OIDC,
+    mutual TLS, and PSD2 strong customer authentication; requires developer-portal onboarding and eIDAS/OBIE
     certificates.
   humanURL: https://developer.metrobankonline.co.uk/Overview
   baseURL: https://api.metrobankonline.co.uk/open-banking/v3.1/pisp
@@ -111,10 +85,10 @@ apis:
     url: https://openbankinguk.github.io/read-write-api-site3/
 - aid: metro-bank:metro-bank-confirmation-of-funds-api
   name: Metro Bank Confirmation of Funds API
-  description: OBIE Read/Write Confirmation of Funds (CBPII) API allowing a card-based
-    payment instrument issuer to confirm whether sufficient funds are available on a
-    customer account. FAPI-secured with OAuth2/OIDC, mutual TLS, and PSD2 strong
-    customer authentication; requires developer-portal onboarding and eIDAS/OBIE
+  description: >-
+    OBIE Read/Write Confirmation of Funds (CBPII) API allowing a card-based payment instrument issuer
+    to confirm whether sufficient funds are available on a customer account. FAPI-secured with OAuth2/OIDC,
+    mutual TLS, and PSD2 strong customer authentication; requires developer-portal onboarding and eIDAS/OBIE
     certificates.
   humanURL: https://developer.metrobankonline.co.uk/Overview
   baseURL: https://api.metrobankonline.co.uk/open-banking/v3.1/cbpii
@@ -128,9 +102,10 @@ apis:
     url: https://openbankinguk.github.io/read-write-api-site3/
 - aid: metro-bank:metro-bank-fca-account-metrics-api
   name: Metro Bank FCA Account Metrics API
-  description: API publishing Metro Bank's FCA service-quality and account metrics data
-    (management information required under UK regulatory reporting), documented in the
-    Metro Bank developer portal as the FCA Account Metrics API.
+  description: >-
+    API publishing Metro Bank's FCA service-quality and account metrics data (management information required
+    under UK regulatory reporting), documented in the Metro Bank developer portal as the FCA Account Metrics
+    API.
   humanURL: https://developer.metrobankonline.co.uk/FCA-Account-Metrics-API
   baseURL: https://api.metrobankonline.co.uk/open-banking/v3.1
   tags:
@@ -140,6 +115,90 @@ apis:
   properties:
   - type: Documentation
     url: https://developer.metrobankonline.co.uk/FCA-Account-Metrics-API
+- aid: metro-bank:metro-bank-atm-api
+  name: Metro Bank ATM API
+  description: Endpoint for getting ATM data
+  humanURL: https://developer.metrobankonline.co.uk/Overview
+  baseURL: https://api.metrobankonline.co.uk/open-banking/v2.3
+  tags:
+  - ATM
+  properties:
+  - type: OpenAPI
+    url: openapi/metro-bank-atm-api-openapi.yml
+  - type: Documentation
+    url: https://developer.metrobankonline.co.uk/Overview
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+- aid: metro-bank:metro-bank-bca-api
+  name: Metro Bank BCA API
+  description: Endpoint for getting Business Current Account data
+  humanURL: https://developer.metrobankonline.co.uk/Overview
+  baseURL: https://api.metrobankonline.co.uk/open-banking/v2.3
+  tags:
+  - BCA
+  properties:
+  - type: OpenAPI
+    url: openapi/metro-bank-bca-api-openapi.yml
+  - type: Documentation
+    url: https://developer.metrobankonline.co.uk/Overview
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+- aid: metro-bank:metro-bank-branch-api
+  name: Metro Bank Branch API
+  description: Endpoint for getting Branch data
+  humanURL: https://developer.metrobankonline.co.uk/Overview
+  baseURL: https://api.metrobankonline.co.uk/open-banking/v2.3
+  tags:
+  - Branch
+  properties:
+  - type: OpenAPI
+    url: openapi/metro-bank-branch-api-openapi.yml
+  - type: Documentation
+    url: https://developer.metrobankonline.co.uk/Overview
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+- aid: metro-bank:metro-bank-ccc-api
+  name: Metro Bank CCC API
+  description: Endpoint for getting Commercial Credit Card data
+  humanURL: https://developer.metrobankonline.co.uk/Overview
+  baseURL: https://api.metrobankonline.co.uk/open-banking/v2.3
+  tags:
+  - CCC
+  properties:
+  - type: OpenAPI
+    url: openapi/metro-bank-ccc-api-openapi.yml
+  - type: Documentation
+    url: https://developer.metrobankonline.co.uk/Overview
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+- aid: metro-bank:metro-bank-pca-api
+  name: Metro Bank PCA API
+  description: Endpoint for getting Personal Current Account data
+  humanURL: https://developer.metrobankonline.co.uk/Overview
+  baseURL: https://api.metrobankonline.co.uk/open-banking/v2.3
+  tags:
+  - PCA
+  properties:
+  - type: OpenAPI
+    url: openapi/metro-bank-pca-api-openapi.yml
+  - type: Documentation
+    url: https://developer.metrobankonline.co.uk/Overview
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+- aid: metro-bank:metro-bank-sme-api
+  name: Metro Bank SME API
+  description: Endpoint for getting Unsecured SME Loan data
+  humanURL: https://developer.metrobankonline.co.uk/Overview
+  baseURL: https://api.metrobankonline.co.uk/open-banking/v2.3
+  tags:
+  - SME
+  properties:
+  - type: OpenAPI
+    url: openapi/metro-bank-sme-api-openapi.yml
+  - type: Documentation
+    url: https://developer.metrobankonline.co.uk/Overview
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
 common:
 - type: AgenticAccess
   url: agentic-access/metro-bank-agentic-access.yml
