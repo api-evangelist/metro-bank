@@ -16,6 +16,17 @@ description: Metro Bank is a UK retail and commercial bank founded in 2010 as th
   Initiation, and Confirmation of Funds - secured with FAPI-grade OAuth2/OIDC, mutual
   TLS, dynamic client registration, and PSD2 strong customer authentication, alongside
   the OBIE Open Data reference-data APIs and FCA service-quality metrics reporting.
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - Financial-Services
