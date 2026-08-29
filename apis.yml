@@ -211,6 +211,9 @@ apis:
   - type: APIReference
     url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
 common:
+- type: CapabilityMap
+  url: capabilities/metro-bank-capability-edges.yml
+  name: Metro Bank Business Capability Map
 - type: AgenticAccess
   url: agentic-access/metro-bank-agentic-access.yml
 - type: DomainSecurity

@@ -1,0 +1,52 @@
+slug: metro-bank
+provider: Metro Bank
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 4
+edges:
+- tag: ATM
+  spec_file: metro-bank-atm-api-openapi.yml
+  capability_id: BC-1300.50
+  capability_id_l1: BC-1300
+  capability_name: Banking Channels Management
+  confidence: 0.85
+  evidence: openapi title "Open Data ATM API"; GET /atms
+  reason: UK Open Banking Open Data endpoint publishing the bank's ATM estate. ATM network information
+    is channel operations data, matching Banking Channels Management (branch, ATM, online channels).
+- tag: Branch
+  spec_file: metro-bank-branch-api-openapi.yml
+  capability_id: BC-1300.50
+  capability_id_l1: BC-1300
+  capability_name: Banking Channels Management
+  confidence: 0.85
+  evidence: openapi title "Open Data Branch API"; GET /branches
+  reason: Open Data endpoint listing branch locations and services, i.e. branch channel information, which
+    is Banking Channels Management.
+- tag: BCA
+  spec_file: metro-bank-bca-api-openapi.yml
+  capability_id: BC-1310.10
+  capability_id_l1: BC-1310
+  capability_name: Product Catalogue Management
+  confidence: 0.7
+  evidence: openapi title "Open Data BCA API"; GET /business-current-accounts
+  reason: Open Data publication of the bank's business current account product range (features, rates,
+    fees). This is product catalogue publication rather than servicing any individual account, so Product
+    Catalogue Management fits; some ambiguity versus deposit account management keeps confidence moderate.
+- tag: PCA
+  spec_file: metro-bank-pca-api-openapi.yml
+  capability_id: BC-1310.10
+  capability_id_l1: BC-1310
+  capability_name: Product Catalogue Management
+  confidence: 0.7
+  evidence: openapi title "Open Data PCA API"; GET /personal-current-accounts
+  reason: Open Data publication of personal current account products and their parameters — a product
+    catalogue surface rather than an account servicing surface.
