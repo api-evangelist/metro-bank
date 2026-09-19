@@ -101,6 +101,10 @@ apis:
   baseURL: https://api.metrobankonline.co.uk/open-banking/v3.1/pisp
   tags:
   - Payment Initiation
+  - PI
+  - Payments
+  tags_raw:
+  - Payment Initiation
   - PIS
   - Payments
   properties:
