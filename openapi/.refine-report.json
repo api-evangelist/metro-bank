@@ -1,0 +1,30 @@
+{
+  "provider": "metro-bank",
+  "sources": [
+    "_original/obie-open-data-api-standard-v1.3-swagger.json"
+  ],
+  "outputs": [
+    "metro-bank-atm-api-openapi.yml",
+    "metro-bank-bca-api-openapi.yml",
+    "metro-bank-branch-api-openapi.yml",
+    "metro-bank-ccc-api-openapi.yml",
+    "metro-bank-pca-api-openapi.yml",
+    "metro-bank-sme-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "obie-open-data-api-standard-v1.3-swagger.json: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "metro-bank-atm-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "metro-bank-bca-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "metro-bank-branch-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "metro-bank-ccc-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "metro-bank-pca-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "metro-bank-sme-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
+}
