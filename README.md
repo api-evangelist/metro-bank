@@ -1,4 +1,4 @@
-# Metro Bank (metro-bank)
+# Metro Bank
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,112 +64,127 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Metro Bank is a UK retail and commercial bank founded in 2010 as the first new high-street bank to open in Britain in over 150 years, headquartered in London and listed on the London Stock Exchange (LSE: MTRO). It is a public limited company (not a mutual or building society), authorised by the Prudential Regulation Authority and regulated by the Financial Conduct Authority and the PRA. As an FCA-authorised account servicing payment service provider (ASPSP) under PSD2, Metro Bank participates in UK Open Banking - without being one of the nine CMA-mandated banks (the CMA9) - and operates a public developer portal, built on Google Apigee, publishing APIs aligned to the Open Banking Implementation Entity (OBIE) standards.
+Metro Bank is a UK retail and commercial bank founded in 2010 as the first new high-street bank to open in Britain in over 150 years, headquartered in London and listed on the London Stock Exchange (ticker MTRO). It is a public limited company (not a mutual or building society), authorised by the Prudential Regulation Authority and regulated by the Financial Conduct Authority and the PRA, serving personal and business customers through its branch ("store") network and digital channels. As an FCA-authorised account servicing payment service provider (ASPSP) under PSD2, Metro Bank participates in UK Open Banking without being one of the nine CMA-mandated banks (the CMA9). It operates a public developer portal, built on Google Apigee, that publishes PSD2 / UK Open Banking APIs aligned to the Open Banking Implementation Entity (OBIE) Read/Write standard - Account and Transaction Information, Payment Initiation, and Confirmation of Funds - secured with FAPI-grade OAuth2/OIDC, mutual TLS, dynamic client registration, and PSD2 strong customer authentication, alongside the OBIE Open Data reference-data APIs and FCA service-quality metrics reporting.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/metro-bank/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/metro-bank/refs/heads/main/apis.yml)
+**Areas:** Financial Services · Banking · Open Banking · PSD2 · OBIE · United Kingdom · Payments · Account Information · FAPI · Fintech
 
-## Tags
+## Metro Bank on APIs.io
 
-- Financial Services
-- Banking
-- Open Banking
-- PSD2
-- OBIE
-- United Kingdom
-- Payments
-- Account Information
-- FAPI
-- Fintech
+Everything profiled for Metro Bank is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/metro-bank/](https://apis.io/providers/metro-bank/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (10)
 
-- **Created:** 2026-07-23
-- **Modified:** 2026-07-23
+- [Metro Bank Account and Transaction Information API](https://apis.io/apis/metro-bank/metro-bank-account-information-api/) — OBIE Read/Write Account Information Service (AIS) API providing consented access to account details, balances, transactions, beneficiaries, standing orders,…
+- [Metro Bank Payment Initiation API](https://apis.io/apis/metro-bank/metro-bank-payment-initiation-api/) — OBIE Read/Write Payment Initiation Service (PIS) API for initiating domestic and scheduled payments, standing orders, and file payments on behalf of a…
+- [Metro Bank Confirmation of Funds API](https://apis.io/apis/metro-bank/metro-bank-confirmation-of-funds-api/) — OBIE Read/Write Confirmation of Funds (CBPII) API allowing a card-based payment instrument issuer to confirm whether sufficient funds are available on a…
+- [Metro Bank FCA Account Metrics API](https://apis.io/apis/metro-bank/metro-bank-fca-account-metrics-api/) — API publishing Metro Bank's FCA service-quality and account metrics data (management information required under UK regulatory reporting), documented in the…
+- [Metro Bank ATM API](https://apis.io/apis/metro-bank/metro-bank-atm-api/) — Endpoint for getting ATM data
+- [Metro Bank BCA API](https://apis.io/apis/metro-bank/metro-bank-bca-api/) — Endpoint for getting Business Current Account data
+- [Metro Bank Branch API](https://apis.io/apis/metro-bank/metro-bank-branch-api/) — Endpoint for getting Branch data
+- [Metro Bank CCC API](https://apis.io/apis/metro-bank/metro-bank-ccc-api/) — Endpoint for getting Commercial Credit Card data
+- [Metro Bank PCA API](https://apis.io/apis/metro-bank/metro-bank-pca-api/) — Endpoint for getting Personal Current Account data
+- [Metro Bank SME API](https://apis.io/apis/metro-bank/metro-bank-sme-api/) — Endpoint for getting Unsecured SME Loan data
 
-## APIs
+### Published properties
 
-### Metro Bank Open Data API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Public, unauthenticated OBIE Open Data reference API exposing ATM locations, branch ("store") locations, personal and business current account products, unsecured SME loans, and commercial credit card products, conformant to the UK Open Banking Open Data API standard.
+#### MCP servers (1)
 
-- **Human URL:** [https://developer.metrobankonline.co.uk/Overview](https://developer.metrobankonline.co.uk/Overview)
-- **Base URL:** `https://api.metrobankonline.co.uk/open-banking/v2.3`
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags
+- [metro-bank-open-data](https://apis.io/servers/metro-bank/metro-bank-open-data/)
 
-- Open Data
-- ATMs
-- Branches
-- Products
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [OpenAPI](openapi/obie-open-data-api-standard-v1.3-swagger.json) — shared OBIE Open Data API standard (v1.3), not a Metro-proprietary contract
-- [Documentation](https://developer.metrobankonline.co.uk/Overview)
-- [API Reference](https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/)
+- [Metro Bank Agentic Access](https://apis.io/agentic-access/metro-bank/metro-bank-agentic-access/)
 
-### Metro Bank Account and Transaction Information API
+#### Collections (1)
 
-OBIE Read/Write Account Information Service (AIS) API providing consented access to account details, balances, transactions, beneficiaries, standing orders, direct debits, and statements. FAPI-secured with OAuth2/OIDC, mutual TLS, and PSD2 strong customer authentication.
+Postman and Open Collection request collections.
 
-- **Human URL:** [https://developer.metrobankonline.co.uk/Overview](https://developer.metrobankonline.co.uk/Overview)
-- **Base URL:** `https://api.metrobankonline.co.uk/open-banking/v3.1/aisp`
+- [Open Data API](https://apis.io/collections/metro-bank/open-obie-open-data-api-standard-v1/)
 
-#### Tags
+#### Overlays (1)
 
-- Account Information
-- AIS
-- Transactions
+OpenAPI overlays, including conversational phrasing for each operation.
 
-### Metro Bank Payment Initiation API
+- [Metro Bank Open Data Overlay](https://apis.io/overlays/metro-bank/metro-bank-open-data-overlay/)
 
-OBIE Read/Write Payment Initiation Service (PIS) API for initiating domestic and scheduled payments, standing orders, and file payments on behalf of a consenting customer. FAPI-secured with OAuth2/OIDC, mutual TLS, and PSD2 strong customer authentication.
+#### Security (2)
 
-- **Human URL:** [https://developer.metrobankonline.co.uk/Overview](https://developer.metrobankonline.co.uk/Overview)
-- **Base URL:** `https://api.metrobankonline.co.uk/open-banking/v3.1/pisp`
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Tags
+- [Metro Bank Authentication](https://apis.io/security/metro-bank/metro-bank-authentication/)
+- [Metro Bank Domain Security](https://apis.io/security/metro-bank/metro-bank-domain-security/)
 
-- Payment Initiation
-- PIS
-- Payments
+#### OAuth scopes (1)
 
-### Metro Bank Confirmation of Funds API
+The permissions the API asks for.
 
-OBIE Read/Write Confirmation of Funds (CBPII) API allowing a card-based payment instrument issuer to confirm whether sufficient funds are available on a customer account. FAPI-secured with OAuth2/OIDC, mutual TLS, and PSD2 strong customer authentication.
+- [Metro Bank Scopes](https://apis.io/scopes/metro-bank/metro-bank-scopes/)
 
-- **Human URL:** [https://developer.metrobankonline.co.uk/Overview](https://developer.metrobankonline.co.uk/Overview)
-- **Base URL:** `https://api.metrobankonline.co.uk/open-banking/v3.1/cbpii`
+## Where to find this API
 
-#### Tags
-
-- Confirmation of Funds
-- CBPII
-
-### Metro Bank FCA Account Metrics API
-
-API publishing Metro Bank's FCA service-quality and account metrics data (management information required under UK regulatory reporting), documented in the Metro Bank developer portal.
-
-- **Human URL:** [https://developer.metrobankonline.co.uk/FCA-Account-Metrics-API](https://developer.metrobankonline.co.uk/FCA-Account-Metrics-API)
-- **Base URL:** `https://api.metrobankonline.co.uk/open-banking/v3.1`
-
-#### Tags
-
-- FCA
-- Account Metrics
-- Reporting
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.metrobankonline.co.uk/)
-- [Developer Portal](https://developer.metrobankonline.co.uk/)
 - [Documentation](https://developer.metrobankonline.co.uk/Overview)
-- [LinkedIn](https://www.linkedin.com/company/metro-bank)
-- [Blog](https://www.metrobankonline.co.uk/about-us/press-releases/)
 - [Support](https://www.metrobankonline.co.uk/help-and-support/)
-- [Privacy Policy](https://www.metrobankonline.co.uk/privacy/)
+- [Blog](https://www.metrobankonline.co.uk/about-us/press-releases/)
+- [Privacy policy](https://www.metrobankonline.co.uk/privacy/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 35.6** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 35.5 |
+| Contract governance | 18.2 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 42.3 |
+| Access clarity | 28.6 |
+
+**Agent readiness 21.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 40.9** — Banking & Open Finance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/metro-bank/](https://apis.io/providers/metro-bank/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Metro Bank: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/metro-bank/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
